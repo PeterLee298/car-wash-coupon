@@ -52,11 +52,16 @@ public class VerificationServiceImpl implements VerificationService {
         this.storeRepository = storeRepository;
         this.redisTemplate = redisTemplate;
         this.objectMapper = objectMapper;
-        
+    }
+    
+    @jakarta.annotation.PostConstruct
+    public void init() {
         // 确保上传目录存在
-        File uploadDir = new File(uploadPath);
-        if (!uploadDir.exists()) {
-            uploadDir.mkdirs();
+        if (uploadPath != null) {
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdirs();
+            }
         }
     }
 

@@ -6,7 +6,7 @@ echo 正在初始化洗车券系统数据库...
 
 REM 数据库连接信息
 set DB_USER=root
-set DB_PASSWORD=123456
+set DB_PASSWORD=lee000321
 set DB_NAME=car_wash_coupon
 
 REM 检查MySQL是否安装

@@ -6,7 +6,7 @@ echo "正在初始化洗车券系统数据库..."
 
 # 数据库连接信息
 DB_USER="root"
-DB_PASSWORD="123456"
+DB_PASSWORD="lee000321"
 DB_NAME="car_wash_coupon"
 
 # 检查MySQL是否安装
