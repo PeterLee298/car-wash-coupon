@@ -1,0 +1,49 @@
+.store-list-container {
+  padding: 20rpx;
+}
+
+.store-item {
+  margin-bottom: 20rpx;
+}
+
+.store-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.store-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.store-address {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 6rpx;
+}
+
+.store-hours {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100rpx 0;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.loading, .no-more {
+  text-align: center;
+  padding: 30rpx;
+  font-size: 26rpx;
+  color: #999;
+}

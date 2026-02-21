@@ -1,0 +1,16 @@
+<view class="scan-container">
+  <view class="scan-area" bindtap="onScanCode">
+    <text class="scan-icon">📱</text>
+    <text class="scan-text">点击扫码</text>
+  </view>
+
+  <view class="divider">
+    <view class="divider-line"></view>
+    <text class="divider-text">或</text>
+    <view class="divider-line"></view>
+  </view>
+
+  <view class="input-btn" bindtap="onInputCode">
+    <text class="input-btn-text">手动输入券码</text>
+  </view>
+</view>

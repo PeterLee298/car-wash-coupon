@@ -1,0 +1,46 @@
+<view class="login-container">
+  <view class="login-header">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+    <text class="title">洗车券</text>
+    <text class="subtitle">便捷洗车，优惠出行</text>
+  </view>
+
+  <view class="login-form">
+    <view class="form-item">
+      <input class="input" type="number" placeholder="请输入手机号" maxlength="11" value="{{phone}}" bindinput="onPhoneInput" />
+    </view>
+    <view class="form-item code-item">
+      <input class="input code-input" type="number" placeholder="请输入验证码" maxlength="6" value="{{code}}" bindinput="onCodeInput" />
+      <view class="code-btn {{!canSendCode || countdown > 0 ? 'disabled' : ''}}" bindtap="sendCode">
+        {{countdown > 0 ? countdown + 's' : '获取验证码'}}
+      </view>
+    </view>
+  </view>
+
+  <view class="agreement">
+    <checkbox-group bindchange="onAgreementChange">
+      <label class="agreement-label">
+        <checkbox value="agreed" checked="{{agreed}}" />
+        <text class="agreement-text">我已阅读并同意</text>
+        <text class="agreement-link">《用户协议》</text>
+        <text class="agreement-text">和</text>
+        <text class="agreement-link">《隐私政策》</text>
+      </label>
+    </checkbox-group>
+  </view>
+
+  <button class="login-btn {{loading ? 'loading' : ''}}" bindtap="login" disabled="{{loading}}">
+    {{loading ? '登录中...' : '登录'}}
+  </button>
+
+  <view class="divider">
+    <view class="divider-line"></view>
+    <text class="divider-text">其他登录方式</text>
+    <view class="divider-line"></view>
+  </view>
+
+  <view class="wechat-login" bindtap="onWechatLogin">
+    <image class="wechat-icon" src="/images/wechat.png"></image>
+    <text class="wechat-text">微信快捷登录</text>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+<view class="my-container">
+  <view class="user-section" wx:if="{{isLoggedIn}}">
+    <view class="user-info">
+      <text class="store-name">{{storeInfo ? storeInfo.name : '门店'}}</text>
+      <text class="user-name">{{userInfo ? userInfo.name : '员工'}}</text>
+      <text class="user-phone">{{userInfo ? userInfo.phone : ''}}</text>
+    </view>
+  </view>
+
+  <view class="login-section" wx:else bindtap="onLogin">
+    <text class="login-text">点击登录</text>
+  </view>
+
+  <view class="logout-section" wx:if="{{isLoggedIn}}">
+    <button class="logout-btn" bindtap="onLogout">退出登录</button>
+  </view>
+</view>

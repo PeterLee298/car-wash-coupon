@@ -1,0 +1,70 @@
+.store-detail-container {
+  padding: 20rpx;
+}
+
+.store-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.store-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.store-actions {
+  display: flex;
+  gap: 30rpx;
+}
+
+.action-btn {
+  padding: 16rpx 24rpx;
+  background-color: #f5f5f5;
+  border-radius: 8rpx;
+}
+
+.action-text {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.store-info {
+  margin-bottom: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.info-value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400rpx;
+  font-size: 28rpx;
+  color: #999;
+}

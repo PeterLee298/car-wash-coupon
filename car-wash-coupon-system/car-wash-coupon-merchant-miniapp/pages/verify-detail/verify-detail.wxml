@@ -1,0 +1,100 @@
+<view class="container">
+  <!-- 加载状态 -->
+  <view wx:if="{{isLoading}}" class="loading">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 详情内容 -->
+  <view wx:else="{{!isLoading && recordDetail}}" class="detail-content">
+    <!-- 状态信息 -->
+    <view class="status-section">
+      <text class="{{getStatusClass(recordDetail.status)}}">{{getStatusText(recordDetail.status)}}</text>
+    </view>
+
+    <!-- 券码信息 -->
+    <view class="section">
+      <view class="section-title">券码信息</view>
+      <view class="info-item">
+        <text class="label">券码：</text>
+        <text class="value">{{recordDetail.couponCode}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">优惠券名称：</text>
+        <text class="value">{{recordDetail.couponTypeName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">有效期至：</text>
+        <text class="value">{{recordDetail.couponExpireTime}}</text>
+      </view>
+    </view>
+
+    <!-- 门店信息 -->
+    <view class="section">
+      <view class="section-title">门店信息</view>
+      <view class="info-item">
+        <text class="label">门店名称：</text>
+        <text class="value">{{recordDetail.storeName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">门店地址：</text>
+        <text class="value">{{recordDetail.storeAddress}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">联系人：</text>
+        <text class="value">{{recordDetail.storeContact}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">联系电话：</text>
+        <text class="value phone">{{recordDetail.storePhone}}</text>
+      </view>
+    </view>
+
+    <!-- 核销信息 -->
+    <view class="section">
+      <view class="section-title">核销信息</view>
+      <view class="info-item">
+        <text class="label">提交时间：</text>
+        <text class="value">{{recordDetail.submitTime}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">提交人：</text>
+        <text class="value">{{recordDetail.submitUser}}</text>
+      </view>
+      <view wx:if="{{recordDetail.auditTime}}" class="info-item">
+        <text class="label">审核时间：</text>
+        <text class="value">{{recordDetail.auditTime}}</text>
+      </view>
+      <view wx:if="{{recordDetail.auditUser}}" class="info-item">
+        <text class="label">审核人：</text>
+        <text class="value">{{recordDetail.auditUser}}</text>
+      </view>
+      <view wx:if="{{recordDetail.rejectReason}}" class="info-item">
+        <text class="label">拒绝原因：</text>
+        <text class="value reject-reason">{{recordDetail.rejectReason}}</text>
+      </view>
+    </view>
+
+    <!-- 施工照片 -->
+    <view class="section">
+      <view class="section-title">施工照片</view>
+      <view wx:if="{{recordDetail.photos && recordDetail.photos.length > 0}}" class="photo-list">
+        <view wx:for="{{recordDetail.photos}}" wx:key="index" class="photo-item" bindtap="previewPhoto" data-photo="{{item}}">
+          <image src="{{item}}" mode="aspectFill" class="photo"></image>
+        </view>
+      </view>
+      <view wx:else="{{!recordDetail.photos || recordDetail.photos.length === 0}}" class="no-photos">
+        <text>暂无施工照片</text>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view wx:if="{{recordDetail.status === 'UPLOAD_NEEDED'}}" class="action-section">
+      <button class="upload-btn" bindtap="uploadPhotos">上传照片</button>
+    </view>
+  </view>
+
+  <!-- 无数据 -->
+  <view wx:if="{{!isLoading && !recordDetail}}" class="empty">
+    <text>暂无详情数据</text>
+  </view>
+</view>

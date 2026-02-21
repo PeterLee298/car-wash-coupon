@@ -1,0 +1,44 @@
+<view class="evaluate-container">
+  <view class="rating-section card">
+    <text class="section-title">服务满意度</text>
+    <view class="rating-stars">
+      <view class="star {{rating >= index + 1 ? 'active' : ''}}" 
+            wx:for="{{[1, 2, 3, 4, 5]}}" 
+            wx:key="*this" 
+            bindtap="onRatingChange" 
+            data-rating="{{index + 1}}">
+        <text class="star-icon">{{rating >= index + 1 ? '★' : '☆'}}</text>
+      </view>
+    </view>
+    <text class="rating-text" wx:if="{{rating > 0}}">
+      {{rating === 5 ? '非常满意' : rating === 4 ? '满意' : rating === 3 ? '一般' : rating === 2 ? '不满意' : '非常不满意'}}
+    </text>
+  </view>
+
+  <view class="content-section card">
+    <text class="section-title">评价内容</text>
+    <textarea class="content-input" 
+              placeholder="您的评价对我很重要，请输入评价" 
+              value="{{content}}" 
+              bindinput="onContentInput"
+              maxlength="500"></textarea>
+  </view>
+
+  <view class="photo-section card">
+    <text class="section-title">上传照片（选填）</text>
+    <view class="photo-list">
+      <view class="photo-item" wx:for="{{photos}}" wx:key="*this">
+        <image class="photo-image" src="{{item}}" mode="aspectFill"></image>
+        <view class="photo-remove" bindtap="onRemovePhoto" data-index="{{index}}">×</view>
+      </view>
+      <view class="photo-add" bindtap="onChoosePhoto" wx:if="{{photos.length < 3}}">
+        <text class="add-icon">+</text>
+        <text class="add-text">添加照片</text>
+      </view>
+    </view>
+  </view>
+
+  <button class="submit-btn {{submitting ? 'disabled' : ''}}" bindtap="onSubmit" disabled="{{submitting}}">
+    {{submitting ? '提交中...' : '提交评价'}}
+  </button>
+</view>

@@ -1,0 +1,55 @@
+<view class="container">
+  <!-- 券码信息 -->
+  <view class="coupon-info" wx:if="{{couponInfo}}">
+    <view class="info-item">
+      <text class="label">券码：</text>
+      <text class="value">{{couponCode}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">优惠券名称：</text>
+      <text class="value">{{couponInfo.couponTypeName}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">有效期至：</text>
+      <text class="value">{{couponInfo.expireTime}}</text>
+    </view>
+  </view>
+
+  <!-- 门店信息 -->
+  <view class="store-info" wx:if="{{storeInfo}}">
+    <view class="section-title">门店信息</view>
+    <view class="info-item">
+      <text class="label">门店名称：</text>
+      <text class="value">{{storeInfo.name}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">门店地址：</text>
+      <text class="value">{{storeInfo.address}}</text>
+    </view>
+  </view>
+
+  <!-- 施工照片 -->
+  <view class="photos-section">
+    <view class="section-title">施工照片</view>
+    <view class="photo-list">
+      <view wx:for="{{photos}}" wx:key="index" class="photo-item">
+        <image src="{{item}}" mode="aspectFill" class="photo"></image>
+        <view class="remove-btn" bindtap="removeImage" data-index="{{index}}">
+          <text>×</text>
+        </view>
+      </view>
+      <view wx:if="{{photos.length < maxPhotos}}" class="photo-item add-btn" bindtap="chooseImage">
+        <text>+</text>
+      </view>
+    </view>
+    <text class="photo-tip">请上传洗车前后的照片，至少1张</text>
+  </view>
+
+  <!-- 提交按钮 -->
+  <button 
+    class="submit-btn" 
+    bindtap="submitVerify" 
+    disabled="{{isSubmitting}}">
+    {{isSubmitting ? '提交中...' : '提交核销'}}
+  </button>
+</view>

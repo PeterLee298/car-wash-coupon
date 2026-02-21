@@ -1,0 +1,36 @@
+<view class="index-container">
+  <view class="user-section" wx:if="{{isLoggedIn}}">
+    <view class="user-info">
+      <text class="store-name">{{storeInfo ? storeInfo.name : '门店'}}</text>
+      <text class="user-name">{{userInfo ? userInfo.name : '员工'}}</text>
+    </view>
+    <view class="scan-btn" bindtap="onScan">
+      <text class="scan-text">扫码核销</text>
+    </view>
+  </view>
+
+  <view class="login-section" wx:else bindtap="onLogin">
+    <text class="login-text">点击登录</text>
+  </view>
+
+  <view class="stats-section" wx:if="{{isLoggedIn}}">
+    <view class="stats-item">
+      <text class="stats-value">{{todayCount}}</text>
+      <text class="stats-label">今日核销</text>
+    </view>
+    <view class="stats-divider"></view>
+    <view class="stats-item">
+      <text class="stats-value">{{monthCount}}</text>
+      <text class="stats-label">本月核销</text>
+    </view>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-item" bindtap="onScan">
+      <text class="menu-text">扫码核销</text>
+    </view>
+    <view class="menu-item" bindtap="onViewRecords">
+      <text class="menu-text">核销记录</text>
+    </view>
+  </view>
+</view>

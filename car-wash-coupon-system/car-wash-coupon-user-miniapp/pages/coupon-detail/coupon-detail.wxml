@@ -1,0 +1,64 @@
+<view class="coupon-detail-container" wx:if="{{couponDetail}}">
+  <view class="coupon-card">
+    <view class="coupon-header">
+      <text class="coupon-name">{{couponDetail.name}}</text>
+      <text class="coupon-type">{{couponDetail.typeName}}</text>
+    </view>
+    <view class="coupon-info">
+      <view class="info-item">
+        <text class="info-label">券码</text>
+        <text class="info-value">{{couponDetail.code}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">有效期</text>
+        <text class="info-value">{{couponDetail.endTime}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="qrcode-section">
+    <view class="qrcode-header">
+      <text class="qrcode-title">出示二维码核销</text>
+      <text class="qrcode-countdown" wx:if="{{countdown > 0}}">
+        {{countdown}}秒后失效
+      </text>
+    </view>
+    <view class="qrcode-wrapper">
+      <image class="qrcode-image" src="{{couponDetail.qrCodeUrl}}" mode="aspectFit"></image>
+    </view>
+    <view class="qrcode-tips">
+      <text wx:if="{{countdown > 0}}">请在有效期内出示二维码</text>
+      <text wx:else class="expired">二维码已失效</text>
+    </view>
+    <button class="refresh-btn" bindtap="refreshQrCode" wx:if="{{countdown <= 0}}">
+      刷新二维码
+    </button>
+  </view>
+
+  <view class="store-section">
+    <view class="section-header">
+      <text class="section-title">适用门店</text>
+      <text class="section-more" bindtap="onMoreStores">查看更多 ></text>
+    </view>
+    <view class="store-list">
+      <view class="store-item" wx:for="{{couponDetail.applicableStores}}" wx:key="id" wx:for-index="idx" wx:if="{{idx < 3}}">
+        <view class="store-info" bindtap="onStoreTap" data-id="{{item.id}}">
+          <text class="store-name">{{item.name}}</text>
+          <text class="store-address">{{item.address}}</text>
+        </view>
+        <view class="store-actions">
+          <view class="action-btn" catchtap="onCallStore" data-phone="{{item.contactPhone}}">
+            <text class="action-text">电话</text>
+          </view>
+          <view class="action-btn" catchtap="onNavigateStore" data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}" data-name="{{item.name}}">
+            <text class="action-text">导航</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="loading-container" wx:if="{{loading}}">
+  <text>加载中...</text>
+</view>

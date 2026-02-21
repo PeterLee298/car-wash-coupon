@@ -1,0 +1,137 @@
+.coupon-list-container {
+  padding: 20rpx;
+  padding-bottom: 100rpx;
+}
+
+.tabs {
+  display: flex;
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab.active {
+  color: #1890ff;
+  font-weight: bold;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 4rpx;
+  background-color: #1890ff;
+  border-radius: 2rpx;
+}
+
+.coupon-list {
+  min-height: 400rpx;
+}
+
+.coupon-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  border-left: 8rpx solid #1890ff;
+}
+
+.coupon-item.disabled {
+  border-left-color: #d9d9d9;
+  opacity: 0.7;
+}
+
+.coupon-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.coupon-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.coupon-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.coupon-right {
+  display: flex;
+  align-items: center;
+}
+
+.coupon-status {
+  font-size: 26rpx;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+}
+
+.status-1 {
+  color: #1890ff;
+  background-color: #e6f7ff;
+}
+
+.status-2 {
+  color: #52c41a;
+  background-color: #f6ffed;
+}
+
+.status-3 {
+  color: #999;
+  background-color: #f5f5f5;
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100rpx 0;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.loading, .no-more {
+  text-align: center;
+  padding: 30rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.bottom-tips {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #1890ff;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.bottom-tips text {
+  margin: 0 10rpx;
+}
